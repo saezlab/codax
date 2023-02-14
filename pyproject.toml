@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "codax"
+version = "0.1.0"
+description = "Neural Logic ODEs for Cell Signaling Inference with JAX"
+authors = ["Attila Gabor <attila.gabor@uni-heidelberg.de>", "Pablo R. Mier <pablo.rodriguez-mier@uni-heidelberg.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+sympy2jax = {git = "https://github.com/saezlab/sympy2jax.git"}
+jax = "^0.3.25"
+pandas = "^1.5.2"
+matplotlib = "^3.6.2"
+networkx = "^2.8.4"
+pygraphviz = "^1.9"
+diffrax = "^0.2.2"
+optax = "^0.1.4"
+easydev = "^0.12.1"
+colormap = "^1.0.4"
+wrapt = "^1.14.1"
+biokit = "^0.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
