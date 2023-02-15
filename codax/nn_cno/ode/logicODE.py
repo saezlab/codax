@@ -536,7 +536,7 @@ class logicODE(CNOBase):
         @jax.jit
         def fit_penalty(params):
             e = squared_errors(params)
-            return e/jnp.size(e)
+            return jnp.sum(e)/jnp.size(e)
 
         
         @jax.jit
