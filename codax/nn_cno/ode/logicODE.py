@@ -8,6 +8,7 @@
 
 from logging import warning
 from queue import Empty
+from collections import OrderedDict
 import sys
 import os
 
@@ -155,7 +156,7 @@ class logicODE(CNOBase):
 
     def _initialize_ODEparameters(self):
         parNames = [str(p) for p in self.symbolicODE['pars']]
-        parameters = dict()
+        parameters = OrderedDict()
         lb = dict()
         ub = dict()
         dz = dict()
@@ -521,7 +522,7 @@ class logicODE(CNOBase):
             return(p.sum())
 
         @jax.jit
-        def fit_penalty(params):
+        def squared_errors(params):
             params = jnp.clip(params, lb, ub)
 
             #v_sim = jax.vmap(simulate,in_axes=(None,0))
@@ -530,8 +531,13 @@ class logicODE(CNOBase):
             # extract the simulation data from the output of diffrax solution and subset it to the measured nodes. 
             simulation_df = jnp.concatenate([s[:,self.measurements_index] for s in simulation_data])
 
-            sq = jnp.power(simulation_df-self.measurements_df,2)
-            return jnp.sum(sq)/jnp.size(sq)
+            return jnp.power(simulation_df-self.measurements_df,2)
+
+        @jax.jit
+        def fit_penalty(params):
+            e = squared_errors(params)
+            return e/jnp.size(e)
+
         
         @jax.jit
         def loss(params):
