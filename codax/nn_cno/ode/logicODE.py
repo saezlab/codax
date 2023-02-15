@@ -549,6 +549,7 @@ class logicODE(CNOBase):
 
             return mse
 
+        self.sq_error_function = squared_errors
         self.loss_function = loss
         self.loss_function_grad = jax.grad(loss)
 
