@@ -1,9 +1,9 @@
 # CODAX: Cellular logic-ODEs accelerated with JAX
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12eRdpoDZXyxHH7HsrChG22zJEZIF9jnW#scrollTo=HIqgq0D8ks70)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12eRdpoDZXyxHH7HsrChG22zJEZIF9jnW)
 
 Neural Logic ODEs for Signaling Network Inference using JAX+Diffrax
 
-> NOTE: This is an experimental version of CNORode for Logic-ODEs that are trained on data using JAX implicit ODE solvers with Diffrax.
+> NOTE: This is an experimental version of CNORode for Logic-ODEs that are trained on data using JAX implicit ODE solvers with Diffrax. It supports the load of experimental setups in MIDAS format using the CNO python API https://github.com/cellnopt/cellnopt.
 
 ## Installation
 
