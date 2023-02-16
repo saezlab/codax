@@ -18,6 +18,12 @@ pip install git+https://github.com/saezlab/sympy2jax.git
 pip install git+https://github.com/saezlab/codax.git
 ```
 
+## Benchmark
+
+We compared the performance of training a Logic-ODE signaling model using CODAX and the old CellNoptR+CNORode. We benchmarked CODAX with JAX 0.3.25 and Diffrax 0.2.2, using the Heun's method with constant step size for the ODE integrator. For CNORode, we used the eSS method with Dynamic Hill Climbing (recommended settings) from [MEIGOR](https://www.bioconductor.org/packages/release/bioc/html/MEIGOR.html) 0.99, as described in [CNORode vignette](https://www.bioconductor.org/packages/release/bioc/vignettes/CNORode/inst/doc/CNORode-vignette.pdf). We tested both methods on the [toyMSB2009 dataset](https://github.com/saezlab/codax/tree/main/codax/nn_cno/datasets/wcs_benchmark):
+
+![benchmark](https://github.com/saezlab/permedcoe/raw/master/experiments/codax_vs_cno/comparison_cnorode_codax.png)
+
 ## Acknowledgements 
 
 CODAX is developed at the [Institute for Computational Biomedicine](https://saezlab.org) (Heidelberg University). The development of this project is supported by European Union's Horizon 2020 Programme under
