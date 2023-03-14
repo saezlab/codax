@@ -1,4 +1,4 @@
-# CODAX: Cellular logic-ODEs accelerated with JAX
+# CODAX: Differentiable cellular logic-ODEs accelerated with JAX
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12eRdpoDZXyxHH7HsrChG22zJEZIF9jnW)
 
 Neural Logic ODEs for Signaling Network Inference using JAX+Diffrax
