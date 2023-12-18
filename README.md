@@ -20,9 +20,13 @@ We compared the performance of training a Logic-ODE signaling model using CODAX 
 
 ![benchmark](https://github.com/saezlab/permedcoe/raw/master/experiments/codax_vs_cno/comparison_cnorode_codax.png)
 
+## Container
+
+For reproducibility and as part of PerMedCoE use cases, we developed a container to be integrated in ML workflows: https://github.com/saezlab/permedcoe/tree/master/containers/codax-container
+
 ## Acknowledgements 
 
 CODAX is developed at the [Institute for Computational Biomedicine](https://saezlab.org) (Heidelberg University). The development of this project is supported by European Union's Horizon 2020 Programme under
 PerMedCoE project ([permedcoe.eu](https://permedcoe.eu/)) agreement no. 951773.
 
-<img src="https://raw.githubusercontent.com/saezlab/.github/main/profile/logos/saezlab.png" alt="Saez lab logo" height="64px" style="height:64px; width:auto"> <img src="https://lcsb-biocore.github.io/COBREXA.jl/stable/assets/permedcoe.svg" alt="PerMedCoE logo" height="64px" style="height:64px; width:auto"> <img src="https://www.klinikum.uni-heidelberg.de/typo3conf/ext/site_ukhd/Resources/Public/Images/Logo_ukhd_de.svg" alt="UKHD logo" height="64px" style="height:64px; width:auto">  
+<img src="https://raw.githubusercontent.com/saezlab/.github/main/profile/logos/saezlab.png" alt="Saez lab logo" height="64px" style="height:64px; width:auto"> <img src="https://lcsb-biocore.github.io/COBREXA.jl/stable/assets/permedcoe.svg" alt="PerMedCoE logo" height="64px" style="height:64px; width:auto"> <img src="https://idw-online.de/en/institutionlogo26358" alt="UKHD logo" height="64px" style="height:64px; width:auto">  
