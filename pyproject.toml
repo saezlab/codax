@@ -7,7 +7,7 @@ readme = "README.md"
 
 [[tool.poetry.source]]
 name = "jaxlib-custom"
-url = "https://storage.googleapis.com/jax-releases/"
+url = "https://storage.googleapis.com/jax-releases/jax_releases.html"
 
 [tool.poetry.dependencies]
 python = ">=3.8"
