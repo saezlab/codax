@@ -10,9 +10,12 @@ Neural Logic ODEs for Signaling Network Inference using JAX+Diffrax
 The library requires JAX and Jaxlib. It is advised to use `conda` to create an environment and install all the dependencies there. Here is an example of the environment used to run the examples of the repository:
 
 ```
-conda create -n codax python=3.8 jax=0.3.25 pygraphviz=1.9 jupyter=1.0.0 -c conda-forge && conda activate codax
+conda create -n codax python=3.10 python-graphviz pygraphviz=1.9 -c conda-forge
+conda activate codax
+pip install jax==0.3.25 jaxlib==0.3.25 -f https://storage.googleapis.com/jax-releases/jax_releases.html
 pip install git+https://github.com/saezlab/codax.git
 ```
+
 
 ## Benchmark
 
