@@ -20,7 +20,7 @@ import shutil
 import pylab
 import easydev
 import pandas as pd
-from biokit.rtools import RPackageManager
+#from biokit.rtools import RPackageManager
 
 
 __all__ = ["Report", "ReportBool", "ReportODE", "ReportFuzzy", "ReportDT"]

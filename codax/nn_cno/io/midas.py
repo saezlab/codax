@@ -2340,14 +2340,17 @@ class XMIDAS(MIDASReader):
             to zero, which biases clustering.
         """
         cmap = self._get_cmap(cmap)
-        from biokit.viz.heatmap import Heatmap
-        data = self.df.query('time>0').unstack(2).loc[self.cellLine]
-        if transpose:
-            h = Heatmap(data.transpose())
-        else:
-            h = Heatmap(data)
+        try:
+            from biokit.viz.heatmap import Heatmap
+            data = self.df.query('time>0').unstack(2).loc[self.cellLine]
+            if transpose:
+                h = Heatmap(data.transpose())
+            else:
+                h = Heatmap(data)
 
-        h.plot(cmap=cmap)
+            h.plot(cmap=cmap)
+        except:
+            print("No biokit")
         return h
 
     def shuffle(self, mode="experiment", inplace=True):

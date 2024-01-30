@@ -14,7 +14,7 @@
 #
 ##############################################################################
 #from cno.core.models import Models
-from biokit import viz
+#from biokit import viz
 
 import pylab
 import pandas as pd

@@ -22,6 +22,8 @@ import diffrax
 import matplotlib.pyplot as plt
 import optax
 
+from time import perf_counter
+
 from codax.nn_cno.core import CNOBase, CNORBase
 from codax.nn_cno.core.params import  OptionsBase
 
@@ -412,8 +414,8 @@ class logicODE(CNOBase):
                 if istate == 0:
                     axs[istate,icond].set_title("condition " + str(icond))
 
-    def fit(self, params=None, optimizer=optax.adam(learning_rate=1e-2), max_iter=100, boundary_handling = "penalty",  verbose=False, plot_convergence=False):
-
+    def fit(self, params=None, optimizer=optax.adam(learning_rate=1e-2), max_iter=100, boundary_handling = "penalty",  verbose=False, plot_convergence=False, get_results=False):
+        results = []
         
         if(params is None):
             params = jnp.array(list(self.get_ODEparameters().values()))
@@ -443,6 +445,7 @@ class logicODE(CNOBase):
         opt_params = params
         opt_loss = np.Inf
 
+        start = perf_counter()
         for i in range(max_iter):
             params, opt_state, loss_value, grad_value = step(params, opt_state)
             convergence.append(loss_value)
@@ -451,6 +454,7 @@ class logicODE(CNOBase):
             if loss_value < opt_loss:
                 opt_params = params
                 opt_loss = loss_value
+            results.append({'elapsed_seconds': perf_counter() - start, 'params': params, 'best_params': opt_params, 'loss': loss_value, 'best_loss': opt_loss})
             
             if(plot_convergence is True):
                 axs.set_xlim(0,i)
@@ -465,7 +469,8 @@ class logicODE(CNOBase):
             if i % 10 == 0:
                 print('  {:<5d} \t {:<9.4e} \t {:<9.4e} \t {:<9.4e}'.format(i, loss_value, opt_loss, jnp.linalg.norm(grad_value)))
                 
-
+        if get_results:
+            return opt_params, results
         return opt_params
 
     def setup_optimization(self):
